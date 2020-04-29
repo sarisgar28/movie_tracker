@@ -1,7 +1,7 @@
 
 class MovieTracker::Movie
 
-    attr_accessor :title, :type, :year, :imdb 
+    attr_accessor :title, :type, :year, :imdb, :plot, :genres, :director, :actors, :runtime
 
     @@all = [ ]
 
@@ -27,23 +27,42 @@ class MovieTracker::Movie
         @@all << self 
     end 
 
-    def self.find_by_title(title)
-        @@all.detect { |t| t.tile == title}
-    end 
+   def update_info(plot, genre, director, actors, runtime)
+        @plot = plot 
+        @genre = genre 
+        @director = director 
+        @actors = actors 
+        @runtime = runtime
+   end 
 
+   
+   
+   
+   
+   
+   #def self.find_by_title(title)
+     #  @@all.detect { |t| t.title == title}
+    #end 
+     
+   
 
-    def self.find_by_year(year)
-        @@all.detect { |y| y.year == year}
-    end 
+    #def self.find_by_type(type)
+     #   @@all.detect { |ty| ty.type == type}
+    #end 
 
-    def self.find_by_type(type)
-        @@all.detect { |ty| ty.type == type}
-    end 
+   
+   
+    #def self.find_by_year(year)
+     #   @@all.detect { |y| y.year == year}
+    #end 
 
-    def self.find_by_rating(imdb)
-        @@all.detect {|im| im.imdb == imdb}
-    end 
+   
+
+    #def self.find_by_rating(imdb)
+     #   @@all.detect {|im| im.imdb == imdb}
+    #end 
     
+
   
       
 

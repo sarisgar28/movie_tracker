@@ -12,13 +12,16 @@ class MovieTracker::ApiManager
         query = {page: 1, r: "json", s: title}
         headers = {"x-rapidapi-key": APIKEY, "x-rapid-host": 'movie-database-imdb-alternative.p.rapidapi.com'}
         res = HTTParty.get(URL, query: query, headers: headers)
-
         moviearr = res["Search"]
         MovieTracker::Movie.mass_create_from_api(moviearr)
-     
     end 
 
-
+    def get_movie_info(m)
+        query = {page: 1, r: "json", i: m.imdb}
+        headers = {"x-rapidapi-key": APIKEY, "x-rapid-host": 'movie-database-imdb-alternative.p.rapidapi.com'}
+        res = HTTParty.get(URL, query: query, headers: headers)
+        m.update_info  
+    end
 
 
 end 
