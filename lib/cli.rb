@@ -10,7 +10,9 @@ class MovieTracker::CLI
             loop do 
              choice = gets.strip.downcase
               if choice == "exit"
-                 puts "BYE!"
+                puts  "-------------" 
+                puts "|    BYE!    |"
+                puts  "-------------"
                  return 
               end 
              choice = choice.to_i 
