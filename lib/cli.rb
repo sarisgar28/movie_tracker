@@ -9,24 +9,24 @@ class MovieTracker::CLI
             display_movies
             loop do 
              choice = gets.strip.downcase
-             if choice == "exit"
-                puts "Bye!"
-                return 
-             end 
+              if choice == "exit"
+                 puts "Bye!"
+                 return 
+              end 
              choice = choice.to_i 
-             if valid?(choice)
-                display_single_movie(choice)
-                puts "When you are done click Enter"
-                gets 
-                MovieTracker::Movie.all.clear
-                break
-             else   
-                puts "Oop! Try again"
-                next 
-             end 
+               if valid?(choice)
+                   display_single_movie(choice)
+                   puts "When you are done click Enter"
+                   gets 
+                    MovieTracker::Movie.all.clear 
+                   break 
+               else 
+                    puts "Oops! Something went wrong!"
+                    next 
+               end  
             end 
         end 
-     end
+    end
 
     def welcome
         sleep (1)
@@ -43,7 +43,8 @@ class MovieTracker::CLI
         puts "Enter a movie title to search or type exit"
         title = gets.strip
         if title == "exit"
-         exit 
+           puts "Bye!"
+           exit 
         end 
         MovieTracker::ApiManager.search(title)
     end
@@ -54,21 +55,21 @@ class MovieTracker::CLI
     end 
    
     def display_movies
-        MovieTracker::Movie.all.each_with_index do |m,i| 
-            puts  "#{i}.#{m.title}" 
+        MovieTracker::Movie.all.each_with_index do |m,i|  
+            puts  "#{i+1}.#{m.title}" 
         end 
     end 
 
     def display_single_movie(i)
-        m = MovieTracker::Movie.all[i]
+        m = MovieTracker::Movie.all[i-1]
         MovieTracker::ApiManager.get_movie_info(m) 
+        puts "Title:   #{m.title}"
         puts "Plot:   #{m.plot}"
         puts "Genres:   #{m.genres}" 
         puts "Director: #{m.director}" 
         puts "Actors:  #{m.actors}" 
         puts "Runtime:  #{m.runtime}" 
-        
-    end 
+     end 
    
        
 
