@@ -10,7 +10,7 @@ class MovieTracker::CLI
             loop do 
              choice = gets.strip.downcase
               if choice == "exit"
-                 puts "BYE! :)"
+                 puts "BYE!"
                  return 
               end 
              choice = choice.to_i 
@@ -43,7 +43,9 @@ class MovieTracker::CLI
         puts "Enter a movie title to search or type exit"
         title = gets.strip
         if title == "exit"
-           puts "BYE! :)"
+           puts  "-------------" 
+           puts "|    BYE!    |"
+           puts  "-------------"
            exit 
         end 
         MovieTracker::ApiManager.search(title)
