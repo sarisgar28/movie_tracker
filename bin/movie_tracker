@@ -3,4 +3,3 @@
 require_relative "../lib/movie_tracker"
 
 MovieTracker::CLI.new.start 
-#because  is coming from  an instance method 

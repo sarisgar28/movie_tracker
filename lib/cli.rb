@@ -7,6 +7,8 @@ class MovieTracker::CLI
         loop do 
             search_movie
             display_movies
+            puts ""
+            puts "Type a number from which movie you want to see"
             loop do 
              choice = gets.strip.downcase
               if choice == "exit"
@@ -68,10 +70,15 @@ class MovieTracker::CLI
         m = MovieTracker::Movie.all[i-1]
         MovieTracker::ApiManager.get_movie_info(m) 
         puts "Title:   #{m.title}"
+        puts ""
         puts "Plot:   #{m.plot}"
+        puts ""
         puts "Genres:   #{m.genres}" 
+        puts ""
         puts "Director: #{m.director}" 
+        puts ""
         puts "Actors:  #{m.actors}" 
+        puts ""
         puts "Runtime:  #{m.runtime}" 
      end 
    
