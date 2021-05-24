@@ -33,11 +33,11 @@ Please type bin/movie_tracker in your terminal and follow the instructions:
 
 "please enter a movie title to search or type exit"
 
-#please type any movie you want to watch 
+# please type any movie you want to watch 
 
 after you get the results, type the number of the option you would like to see more information about
 
-#results 
+# results 
 
 ## Development
 
