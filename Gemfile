@@ -7,7 +7,7 @@ gem "rake", "~> 12.0.0"
 gem "rspec", "~> 3.0"
 
 
-gem "httparty", "~> 0.18.0"
+gem "httparty", "~> 0.21.0"
 
 gem "json", "~> 2.3"
 
